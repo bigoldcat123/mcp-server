@@ -1,6 +1,6 @@
 use std::{fs::File, io::Read};
 
-use mcp_server::{InitializeRequest, util::Object};
+use mcp_server::{util::Object, Implementation, InitializeRequest, InitializeResult, ServerCapabilities};
 use serde::{Deserialize, Serialize};
 
 #[test]
@@ -31,4 +31,12 @@ fn test_de() {
     println!("{:?}", s);
     let e = serde_json::from_str::<InitializeRequest>(&s).unwrap();
     println!("{:?}",e);
+}
+
+
+#[test]
+fn seri_result() {
+    let req = InitializeResult::new("2.0".to_string(), 1, "2025-06-18".to_string(), ServerCapabilities::new(None, None, None, None, None), Implementation::new("ExampleServer".to_string(), Some("Example Server Display Name".to_string()), "222.222".to_string()), Some("this is a instruction!".to_string()));
+    let res = serde_json::to_string_pretty(&req).unwrap();
+    println!("{}", res);
 }

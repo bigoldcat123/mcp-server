@@ -1,19 +1,18 @@
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "initialize",
-    "params": {
-        "protocolVersion": "2025-06-18",
-        "capabilities": {
-            "roots": {
-                "listChanged": true
-            },
-            "sampling": {},
-            "elicitation": {}
-        },
-        "clientInfo": {
-            "name": "Visual Studio Code",
-            "version": "1.102.2"
-        }
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "protocolVersion": "2025-06-18",
+  "capabilities": {
+    "experimental": null,
+    "logging": null,
+    "completions": null,
+    "prompts": null,
+    "tools": null
+  },
+  "serverInfo": {
+    "name": "ExampleServer",
+    "title": "Example Server Display Name",
+    "version": "222.222"
+  },
+  "instructions": "this is a instruction!"
 }

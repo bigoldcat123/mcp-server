@@ -1,2 +1,3 @@
-{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{"roots":{"listChanged":true},"sampling":{},"elicitation":{}},"clientInfo":{"name":"Visual Studio Code","version":"1.102.2"}}}
-Ok(InitializeRequest { jsonrpc: "2.0", id: 1, method: "initialize", params: InitializeRequesParam { client_info: Implementation { name: "Visual Studio Code", title: None, version: "1.102.2" }, capabilities: ClientCapabilities { experimental: None, roots: Some(ClientCapabilitiesRoots { list_changed: Some(true) }), sampling: Some({}), elicitation: Some({}) }, protocol_version: "2025-06-18" } })
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
