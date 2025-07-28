@@ -2,7 +2,7 @@
 
 use crate::util::Object;
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
+use std::{collections::HashMap, fs::File, io::{Lines, Result, Stdin, StdinLock, Write}};
 pub mod macros;
 pub mod util;
 
@@ -63,15 +63,15 @@ pub struct Tools {
 #[derive(Debug,Serialize,Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ServerCapabilities {
-    #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
     experimental:Option<HashMap<String, Object>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
     logging: Option<Object>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
     completions: Option<Object>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
     prompts:Option<Prompts>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
     tools: Option<Tools>
 }
 impl ServerCapabilities {
@@ -111,5 +111,55 @@ impl InitializeResult {
             server_info,
             instructions,
         }}
+    }
+}
+
+#[derive(Debug,Serialize,Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct InitializedNotification {
+    jsonrpc:String,
+    method:String,
+    params:Option<Object>
+}
+
+pub struct  McpServer {
+    lines:Lines<StdinLock<'static>>,
+    log_file:File
+}
+impl McpServer {
+    pub fn new(stdin:Stdin, log_file:File) -> Self {
+        Self {
+            lines:stdin.lines(),
+            log_file
+        }
+    }
+    pub fn run(mut self) -> Result<()>{
+        self.handle_initialization()?;
+        Ok(())
+    }
+    fn handle_initialization(&mut self) ->Result<()> {
+        if let Some(next) = self.lines.next() {
+            let line = next?;
+            self.log(&line);
+            let _req = serde_json::from_str::<InitializeRequest>(&line)?;
+            let res = InitializeResult::new(_req.jsonrpc, _req.id, _req.params.protocol_version, ServerCapabilities::new(None, None, None, None, Some(Tools { list_changed: Some(false) })), Implementation::new("ExampleServer".to_string(), Some("Example Server Display Name".to_string()), "2.0".to_string()), Some("this is a instruction!".to_string()));
+            let res = serde_json::to_string(&res)?;
+            self.log(format!("|---{}", res).as_str());
+            println!("{res}");
+        }
+        if let Some(next) = self.lines.next() {
+            let init_notification = next?;
+            self.log(&init_notification);
+
+            let _notification = serde_json::from_str::<InitializedNotification>(&init_notification)?;
+        }
+        if let Some(next) = self.lines.next() {
+            let init_notification = next?;
+            self.log(&init_notification);
+        }
+        Ok(())
+    }
+    fn log(&mut self, msg:&str) {
+        self.log_file.write_fmt(format_args!("{}: {} \n", file!(), msg)).expect("writing to log file");
     }
 }
