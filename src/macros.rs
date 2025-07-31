@@ -6,7 +6,21 @@ macro_rules! Package {
         #[serde(rename_all = "camelCase")]
         pub struct $name {
             jsonrpc: String,
-            id:i32,
+            method: String,
+            $(
+                $filed_name:$type,
+            )*
+        }
+    };
+}
+#[macro_export]
+macro_rules! Result {
+    (pub struct $name:ident { $($filed_name:ident:$type:ty),* }) => {
+        #[derive(Serialize,Deserialize,Debug)]
+        #[serde(rename_all = "camelCase")]
+        pub struct $name {
+            jsonrpc: String,
+            id: i32,
             $(
                 $filed_name:$type,
             )*
@@ -19,7 +33,7 @@ macro_rules! Request {
     (pub struct $name:ident { $($filed_name:ident:$type:ty),* }) => {
         Package!(
             pub struct $name {
-                method: String,
+                id:i32,
                 $(
                     $filed_name: $type
                 )*
@@ -38,7 +52,7 @@ macro_rules! BaseMetadata {
             name:String,
             title:Option<String>,
             $(
-                $filed_name:$type
+                $filed_name:$type,
             )*
         }
     };

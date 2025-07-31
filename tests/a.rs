@@ -1,6 +1,6 @@
 use std::{fs::File, io::Read};
 
-use mcp_server::{util::Unknown, CommonRequest, Implementation, InitializeRequest, InitializeResult, ServerCapabilities};
+use mcp_server::{result::{InitializeResult, ServerCapabilities}, util::Unknown, CommonRequest, Implementation, InitializeRequest};
 use serde::{Deserialize, Serialize};
 
 #[test]
@@ -29,7 +29,8 @@ fn test_de() {
         .read_to_string(&mut s)
         .unwrap();
     println!("{:?}", s);
-    let e = serde_json::from_str::<InitializeRequest>(&s).unwrap();
+    let e = serde_json::from_str::<CommonRequest>(&s).unwrap();
+    let e = InitializeRequest::try_from(e).unwrap();
     println!("{:?}",e);
 }
 
