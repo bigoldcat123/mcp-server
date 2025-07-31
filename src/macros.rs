@@ -1,13 +1,16 @@
 
 #[macro_export]
 macro_rules! Package {
-    (pub struct $name:ident { $($filed_name:ident:$type:ty),* }) => {
+    ($visibility:vis struct $name:ident { $(
+        $(#[$field_meta:meta])*
+        $filed_name:ident:$type:ty),* }) => {
         #[derive(Serialize,Deserialize,Debug)]
         #[serde(rename_all = "camelCase")]
-        pub struct $name {
+        $visibility struct $name {
             jsonrpc: String,
             method: String,
             $(
+                $(#[$field_meta])*
                 $filed_name:$type,
             )*
         }
@@ -15,13 +18,16 @@ macro_rules! Package {
 }
 #[macro_export]
 macro_rules! Result {
-    (pub struct $name:ident { $($filed_name:ident:$type:ty),* }) => {
+    ( $visibility:vis struct $name:ident { $(
+        $(#[$field_meta:meta])*
+        $filed_name:ident:$type:ty),* }) => {
         #[derive(Serialize,Deserialize,Debug)]
         #[serde(rename_all = "camelCase")]
-        pub struct $name {
+        $visibility struct $name {
             jsonrpc: String,
             id: i32,
             $(
+                $(#[$field_meta])*
                 $filed_name:$type,
             )*
         }
@@ -30,11 +36,17 @@ macro_rules! Result {
 
 #[macro_export]
 macro_rules! Request {
-    (pub struct $name:ident { $($filed_name:ident:$type:ty),* }) => {
+    ($visibility:vis struct $name:ident {
+        $(
+            $(#[$field_meta:meta])*
+            $filed_name:ident:$type:ty
+        ),*
+    }) => {
         Package!(
-            pub struct $name {
+            $visibility struct $name {
                 id:i32,
                 $(
+                    $(#[$field_meta])*
                     $filed_name: $type
                 )*
             }
@@ -45,13 +57,37 @@ macro_rules! Request {
 
 #[macro_export]
 macro_rules! BaseMetadata {
-    (pub struct $name:ident { $( $filed_name:ident:$type:ty ),* }) => {
+    (pub struct $(#[$struct_meta:meta])* $name:ident {
+        $(
+            $(#[$field_meta:meta])*
+            $filed_name:ident:$type:ty
+        ),*
+    }) => {
         #[derive(Deserialize,Serialize,Debug)]
         #[serde(rename_all = "camelCase")]
+        $(#[$struct_meta])*
         pub struct $name {
             name:String,
             title:Option<String>,
             $(
+                $(#[$field_meta])*
+                $filed_name:$type,
+            )*
+        }
+    };
+}
+
+
+macro_rules! testaa {
+    ( $vis:vis struct $name:ident  {
+        $(
+            $(#[$meta:meta])*
+            $filed_name:ident:$type:ty
+        ),*
+    }) => {
+        $vis struct $name {
+            $(
+                $(#[$meta])*
                 $filed_name:$type,
             )*
         }

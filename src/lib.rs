@@ -1,8 +1,8 @@
 #![allow(unused)]
 
 use crate::util::Unknown;
-use constant::{ notification::Notification, tools::Tool, RequestMethod};
-use result::{tools::{InputSchema, ListToolsResult, ToolDescription}, InitializeResult, ServerCapabilities, Tools};
+use constant::{ notification::Notification, resources::Resource, tools::Tool, RequestMethod};
+use result::{prompt::ListPromptResult, resoures::ListResourceResult, tools::{InputSchema, ListToolsResult, ToolDescription}, InitializeResult, ServerCapabilities, Tools};
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, error::Error, fmt::format, fs::File, io::{Lines, Result, Stdin, StdinLock, Write}};
 pub mod macros;
@@ -190,7 +190,6 @@ impl McpServer {
         // self.handle_initialization()?;
         log("start!");
         for line in self.lines.into_iter() {
-            log("?");
             if let Ok(line) = line {
                 log(&line);
                 if let Ok (req) = serde_json::from_str::<CommonRequest>(&line) {
@@ -208,10 +207,32 @@ impl McpServer {
                         RequestMethod::Tools(tool) => {
                             match tool {
                                 Tool::List => {
-                                    log("List");
-                                    let r = ListToolsResult::new("2.0".to_string(), 1, vec![
-                                        ToolDescription::new("tool1".to_string(), Some(String::from("title")), Some(String::from("description")), InputSchema::new(None, None), None,None),
+                                    log("List Tool");
+                                    let r = ListToolsResult::new(req.jsonrpc, req.id.ok_or("err")?, vec![
+                                        ToolDescription::new("HelloWorld".to_string(), Some(String::from("say hello world")), Some(String::from("call it to say hello world")), InputSchema::new(None, None), None,None),
                                     ]);
+                                    let r = serde_json::to_string(&r).unwrap();
+                                    println!("{r}");
+                                    log(r.as_str());
+                                }
+                            }
+                        }
+                        RequestMethod::Resources(resource) => {
+                            match resource {
+                                Resource::List => {
+                                    log("List Resources");
+                                    let r = ListResourceResult::new(req.jsonrpc, req.id.ok_or("err")?, vec![]);
+                                    let r = serde_json::to_string(&r).unwrap();
+                                    println!("{r}");
+                                    log(r.as_str());
+                                }
+                            }
+                        }
+                        RequestMethod::Prompts(prompt) => {
+                            match prompt {
+                                constant::prompt::Prompt::List => {
+                                    log("List Prompts");
+                                    let r = ListPromptResult::new(req.jsonrpc, req.id.ok_or("err")?, vec![]);
                                     let r = serde_json::to_string(&r).unwrap();
                                     println!("{r}");
                                     log(r.as_str());

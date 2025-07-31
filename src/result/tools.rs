@@ -23,7 +23,9 @@ pub struct ToolAnnotations {
 #[derive(Serialize,Deserialize,Debug)]
 pub struct InputSchema {
     r#type:String,// "object"
+    #[serde(skip_serializing_if = "Option::is_none")]
     properties:Option<HashMap<String,Unknown>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     required:Option<Vec<String>>
 }
 impl InputSchema {
@@ -39,9 +41,12 @@ type OutputSchema = InputSchema;
 
 BaseMetadata!(
     pub struct ToolDescription {
+        #[serde(skip_serializing_if = "Option::is_none")]
         description:Option<String>,
         input_schema:InputSchema,
+        #[serde(skip_serializing_if = "Option::is_none")]
         output_schema:Option<OutputSchema>,
+        #[serde(skip_serializing_if = "Option::is_none")]
         annotations:Option<ToolAnnotations>
     }
 );
@@ -78,12 +83,26 @@ impl ListToolsResult {
 
 mod test {
 
+    use std::collections::HashMap;
+
+    use crate::util::Unknown;
+
     use super::{InputSchema, ListToolsResult, OutputSchema, ToolDescription};
 
     #[test]
     fn create() {
         let r = ListToolsResult::new("2.0".to_string(), 1, vec![
-            ToolDescription::new("tool1".to_string(), Some(String::from("title")), Some(String::from("description")), InputSchema::new(None, None), None,None),
+            ToolDescription::new("tool1".to_string(),
+                Some(String::from("title")),
+                Some(String::from("description")),
+                InputSchema::new(Some(
+                    HashMap::from([("location".to_string(),Unknown::Object(
+                        HashMap::from([("type".to_string(),Unknown::String("string".to_string())),
+                            ("description".to_string(),Unknown::String("City name or zip code".to_string()))])
+                    ))])
+                ), Some(vec!["location".to_string()])),
+                None,
+                None),
         ]);
         let r = serde_json::to_string_pretty(&r).unwrap();
         println!("{r}");

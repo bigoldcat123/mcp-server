@@ -1,4 +1,7 @@
 pub mod tools;
+pub mod prompt;
+pub mod resoures;
+
 use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
@@ -16,12 +19,15 @@ pub struct Prompts {
 #[derive(Debug,Serialize,Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Resources {
+    #[serde(skip_serializing_if = "Option::is_none")]
     list_changed: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     subscribe: Option<bool>
 }
 #[derive(Debug,Serialize,Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Tools {
+    #[serde(skip_serializing_if = "Option::is_none")]
     list_changed: Option<bool>
 }
 impl Tools {
@@ -33,6 +39,7 @@ impl Tools {
 #[serde(rename_all = "camelCase")]
 pub struct ServerCapabilities {
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     experimental:Option<HashMap<String, Unknown>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     logging: Option<Unknown>,
@@ -60,6 +67,7 @@ struct InnerInitializeResult {
     protocol_version:String,
     capabilities: ServerCapabilities,
     server_info: Implementation,
+    #[serde(skip_serializing_if = "Option::is_none")]
     instructions:Option<String>
 }
 Result!(

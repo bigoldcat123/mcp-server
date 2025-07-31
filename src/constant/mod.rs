@@ -1,8 +1,13 @@
 #![allow(unused)]
 pub mod tools;
 pub mod notification;
+pub mod resources;
+pub mod prompt;
+
 use notification::Notification;
+use resources::Resource;
 use tools::Tool;
+use prompt::Prompt;
 
 use crate::log;
 
@@ -12,6 +17,8 @@ pub enum RequestMethod {
     Initialize,
     Notifications(Notification),
     Tools(Tool),
+    Resources(Resource),
+    Prompts(Prompt),
 }
 
 impl From<&str> for RequestMethod {
@@ -21,6 +28,8 @@ impl From<&str> for RequestMethod {
             "initialize" => Self::Initialize,
             "notifications" => Self::Notifications(sub_method.into()),
             "tools" => Self::Tools(sub_method.into()),
+            "resources" => Self::Resources(sub_method.into()),
+            "prompts" => Self::Prompts(sub_method.into()),
             _ => {
                 log("GGG");
                 Self::Initialize
