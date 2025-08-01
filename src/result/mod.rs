@@ -1,12 +1,11 @@
 pub mod tools;
 pub mod prompt;
 pub mod resoures;
-
 use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 
-use crate::{util::Unknown, Implementation, Result};
+use crate::{util::Unknown, Implementation, Package, Result};
 
 
 
@@ -89,3 +88,17 @@ impl InitializeResult {
         }}
     }
 }
+
+#[derive(Debug,Serialize,Deserialize)]
+pub struct ResultError {
+    code:i32,
+    message:String,
+    data:Option<HashMap<String, Unknown>>
+}
+
+Result!(
+    pub struct CommonResult {
+        pub result:Option<HashMap<String, Unknown>>,
+        pub error:Option<ResultError>
+    }
+);

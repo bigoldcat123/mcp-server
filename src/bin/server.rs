@@ -12,6 +12,5 @@ fn main() {
     let server = McpServer::new(stdin,f);
     if let Err(e) = server.run() {
         eprintln!("Error: {}", e);
-
     }
 }

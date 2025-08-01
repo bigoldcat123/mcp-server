@@ -3,15 +3,16 @@
 macro_rules! Package {
     ($visibility:vis struct $name:ident { $(
         $(#[$field_meta:meta])*
-        $filed_name:ident:$type:ty),* }) => {
+      $field_visibility:vis  $filed_name:ident:$type:ty
+    ),* }) => {
         #[derive(Serialize,Deserialize,Debug)]
         #[serde(rename_all = "camelCase")]
         $visibility struct $name {
-            jsonrpc: String,
-            method: String,
+            pub jsonrpc: String,
+            pub method: String,
             $(
                 $(#[$field_meta])*
-                $filed_name:$type,
+               $field_visibility $filed_name:$type,
             )*
         }
     };
@@ -20,7 +21,7 @@ macro_rules! Package {
 macro_rules! Result {
     ( $visibility:vis struct $name:ident { $(
         $(#[$field_meta:meta])*
-        $filed_name:ident:$type:ty),* }) => {
+        $field_visibility:vis $filed_name:ident:$type:ty),* }) => {
         #[derive(Serialize,Deserialize,Debug)]
         #[serde(rename_all = "camelCase")]
         $visibility struct $name {
@@ -28,7 +29,7 @@ macro_rules! Result {
             id: i32,
             $(
                 $(#[$field_meta])*
-                $filed_name:$type,
+                $field_visibility $filed_name:$type,
             )*
         }
     };
@@ -39,15 +40,15 @@ macro_rules! Request {
     ($visibility:vis struct $name:ident {
         $(
             $(#[$field_meta:meta])*
-            $filed_name:ident:$type:ty
+            $field_visibility:vis $filed_name:ident:$type:ty
         ),*
     }) => {
         Package!(
             $visibility struct $name {
-                id:i32,
+                pub id:i32,
                 $(
                     $(#[$field_meta])*
-                    $filed_name: $type
+                    $field_visibility $filed_name: $type
                 )*
             }
         );

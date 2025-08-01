@@ -1,6 +1,6 @@
 use std::{fs::File, io::Read};
 
-use mcp_server::{result::{InitializeResult, ServerCapabilities}, util::Unknown, CommonRequest, Implementation, InitializeRequest};
+use mcp_server::{request::{init::InitializeRequest, CommonRequest}, result::{InitializeResult, ServerCapabilities}, util::Unknown, Implementation};
 use serde::{Deserialize, Serialize};
 
 #[test]

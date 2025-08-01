@@ -1,114 +1,38 @@
 #![allow(unused)]
 
-use crate::util::Unknown;
-use constant::{ notification::Notification, resources::Resource, tools::Tool, RequestMethod};
-use result::{prompt::ListPromptResult, resoures::ListResourceResult, tools::{InputSchema, ListToolsResult, ToolDescription}, InitializeResult, ServerCapabilities, Tools};
-use serde::{Deserialize, Serialize};
-use std::{collections::HashMap, error::Error, fmt::format, fs::File, io::{Lines, Result, Stdin, StdinLock, Write}};
 pub mod macros;
 pub mod util;
 pub mod constant;
 pub mod result;
-#[derive(Deserialize, Serialize, Debug)]
-#[serde(rename_all = "camelCase")]
-struct ClientCapabilitiesRoots {
-    list_changed: Option<bool>,
-}
+pub mod request;
+pub mod notification;
+pub mod tool;
+use crate::util::Unknown;
+use constant::{ notification::Notification, resources::Resource, tools::Tool, RequestMethod};
+use request::{init::InitializeRequest, tool::CallToolRequest, CommonRequest};
+use result::{prompt::ListPromptResult, resoures::ListResourceResult, tools::{InputSchema, ListToolsResult, ToolDescription}, InitializeResult, ServerCapabilities, Tools};
+use serde::{Deserialize, Serialize};
+use std::{collections::HashMap, error::Error, fmt::format, fs::File, io::{Lines, Result, Stdin, StdinLock, Write}};
 
-impl TryFrom<Unknown> for ClientCapabilitiesRoots {
-    type Error = String;
-    fn try_from(value: Unknown) -> std::result::Result<Self, Self::Error> {
-        let mut map = value.unwrap_as_map().ok_or("Invalid params")?;
-        let list_changed = if let Some(v) = map.remove("listChanged") {
-            Some(v.unwrap_as_bool().ok_or("err")?)
-        } else {
-            None
-        };
-        Ok(ClientCapabilitiesRoots {
-            list_changed,
-        })
-    }
-}
-
-#[derive(Deserialize, Serialize, Debug)]
-struct ClientCapabilities {
-    experimental: Option<HashMap<String, Unknown>>,
-    roots: Option<ClientCapabilitiesRoots>,
-    sampling: Option<HashMap<String, Unknown>>,
-    elicitation: Option<HashMap<String, Unknown>>,
-}
-impl TryFrom<Unknown> for ClientCapabilities {
-    type Error = String;
-    fn try_from(value: Unknown) -> std::result::Result<Self, Self::Error> {
-        let mut map = value.unwrap_as_map().ok_or("Invalid params")?;
-        let experimental = if let Some(e) = map.remove("experimental") {
-            Some(e.unwrap_as_map().ok_or("err")?)
-        }else {
-            None
-        };
-        let roots = if let Some(r) = map.remove("roots") {
-            Some(r.try_into()?)
-        }else {
-            None
-        };
-        let sampling = if let Some(s) = map.remove("sampling") {
-            Some(s.unwrap_as_map().ok_or("err")?)
-        }else {
-            None
-        };
-        let elicitation = if let Some(e) = map.remove("elicitation") {
-            Some(e.unwrap_as_map().ok_or("err")?)
-        }else {
-            None
-        };
-        Ok(ClientCapabilities {
-            experimental,
-            roots,
-            sampling,
-            elicitation,
-        })
-    }
-}
-
-#[derive(Deserialize, Serialize, Debug)]
-#[serde(rename_all = "camelCase")]
-struct InitializeRequesParam {
-    client_info: Implementation,
-    capabilities: ClientCapabilities,
-    protocol_version: String,
-}
-impl TryFrom<Unknown> for InitializeRequesParam {
-    type Error = String;
-    fn try_from(value: Unknown) -> std::result::Result<Self, Self::Error> {
-        let mut map = value.unwrap_as_map().ok_or("Invalid params")?;
-        let protocol_version = map.remove("protocolVersion").ok_or("err")?.unwrap_as_string().ok_or("err")?;
-        let client_info = map.remove("clientInfo").ok_or("err")?.try_into()?;
-        let capabilities = map.remove("capabilities").ok_or("err")?.try_into()?;
-        Ok(InitializeRequesParam {
-            client_info,
-            capabilities,
-            protocol_version,
-        })
-    }
-}
 BaseMetadata!(
     pub struct Implementation {
         version: String
     }
 );
 impl TryFrom<Unknown> for Implementation {
-    type Error = String;
+    type Error = serde_json::Error;
     fn try_from(value: Unknown) -> std::result::Result<Self, Self::Error> {
-        let mut imp = value.unwrap_as_map().ok_or("err")?;
-        let version = imp.remove("version").ok_or("err")?.unwrap_as_string().ok_or("err")?;
-        let name = imp.remove("name").ok_or("err")?.unwrap_as_string().ok_or("err")?;
-        let title = if let Some(t) = imp.remove("title") {
-            Some(t.unwrap_as_string().ok_or("err")?)
-        }else {
-            None
-        };
-        Ok(Implementation { version, name, title })
-
+        // let mut imp = value.unwrap_as_map().ok_or("err")?;
+        // let version = imp.remove("version").ok_or("err")?.unwrap_as_string().ok_or("err")?;
+        // let name = imp.remove("name").ok_or("err")?.unwrap_as_string().ok_or("err")?;
+        // let title = if let Some(t) = imp.remove("title") {
+        //     Some(t.unwrap_as_string().ok_or("err")?)
+        // }else {
+        //     None
+        // };
+        // Ok(Implementation { version, name, title })
+        let e = serde_json::to_string(&value)?;
+        serde_json::from_str(&e)
     }
 }
 impl Implementation {
@@ -117,57 +41,7 @@ impl Implementation {
     }
 }
 
-Request!(
-    pub struct InitializeRequest {
-        params: InitializeRequesParam
-    }
-);
 
-impl TryFrom<CommonRequest> for InitializeRequest {
-    type Error = String;
-    fn try_from(value: CommonRequest) -> std::result::Result<Self, Self::Error> {
-        Ok(InitializeRequest { jsonrpc: value.jsonrpc,
-            id: value.id.ok_or("err")?,
-            method: value.method,
-            params: value.params.ok_or("err")?.try_into()?
-        })
-    }
-}
-
-Package!(
-    pub struct CommonRequest {
-        id:Option<i32>,
-        params:Option<Unknown>
-    }
-);
-
-impl TryFrom<Unknown> for CommonRequest {
-    type Error = String;
-    fn try_from(value: Unknown) -> std::result::Result<Self, Self::Error> {
-        let mut params = value.unwrap_as_map().ok_or("err")?;
-        Ok(CommonRequest { jsonrpc: params.remove("jsonrpc").ok_or("err")?.unwrap_as_string().ok_or("err")?,
-            id: if let Some(id) = params.remove("id") {
-                Some(id.unwrap_as_number().ok_or("err")?)
-            }else {
-                None
-            },
-            method:  params.remove("method").ok_or("err")?.unwrap_as_string().ok_or("err")?,
-            params: if let Some(x) = params.remove("params") {
-                Some(x)
-            } else {
-                None
-            }
-        })
-    }
-}
-
-#[derive(Debug,Serialize,Deserialize)]
-#[serde(rename_all = "camelCase")]
-struct InitializedNotification {
-    jsonrpc:String,
-    method:String,
-    params:Option<Unknown>
-}
 
 fn log(msg:&str) {
     let mut f = std::fs::OpenOptions::new()
@@ -177,6 +51,7 @@ fn log(msg:&str) {
         .unwrap();
     f.write_fmt(format_args!("{}\n",msg)).unwrap();
 }
+
 pub struct  McpServer {
     lines:Lines<StdinLock<'static>>,
 }
@@ -209,11 +84,28 @@ impl McpServer {
                                 Tool::List => {
                                     log("List Tool");
                                     let r = ListToolsResult::new(req.jsonrpc, req.id.ok_or("err")?, vec![
-                                        ToolDescription::new("HelloWorld".to_string(), Some(String::from("say hello world")), Some(String::from("call it to say hello world")), InputSchema::new(None, None), None,None),
+                                        ToolDescription::new("HelloWorld".to_string(), Some(String::from("say hello world")), Some(String::from("call it to say hello world")), InputSchema::new({
+                                            let mut properties = HashMap::new();
+                                            properties.insert("name".to_string(),Unknown::Object({
+                                                let mut des = HashMap::new();
+                                                des.insert("type".to_string(), Unknown::String("string".to_string()));
+                                                des.insert("description".to_string(), Unknown::String("name of the person to say hello to".to_string()));
+                                                des
+                                            }));
+                                            Some(properties)
+                                        }, Some(vec!["name".to_string()])), None,None),
                                     ]);
                                     let r = serde_json::to_string(&r).unwrap();
                                     println!("{r}");
                                     log(r.as_str());
+                                }
+                                Tool::Call => {
+                                    log("Tool Call");
+                                    let req =  CallToolRequest::try_from(req)?;
+                                    let tool = |name:String| {
+                                        log(name.as_str())
+                                    };
+                                    tool(req.params.arguments.ok_or("err")?.remove("name").ok_or("err")?.unwrap_as_string().ok_or("err")?);
                                 }
                             }
                         }
