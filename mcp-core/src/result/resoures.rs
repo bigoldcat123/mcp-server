@@ -5,43 +5,22 @@ use unknown::Unknown;
 
 use crate::{ BaseMetadata, Result};
 
-#[derive(Debug,Serialize,Deserialize)]
-#[serde(rename_all = "lowercase")]
-pub enum Role {
-    User,
-    Assistant,
-}
+use super::Annotation;
 
-#[derive(Debug,Serialize,Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct ResourceAnnotation {
-    audience:Option<Vec<Role>>,
-    priority:i32,
-    last_modified:Option<String>
-}
 
-impl ResourceAnnotation {
-    pub fn new(audience:Option<Vec<Role>>,priority:i32,last_modified:Option<String>) -> Self {
-        Self {
-            audience,
-            priority,
-            last_modified
-        }
-    }
-}
 
 BaseMetadata!(
     pub struct Resource {
         uri:String,
         description:Option<String>,
         mime_type:Option<String>,
-        annotations:Option<ResourceAnnotation>,
+        annotations:Option<Annotation>,
         size:Option<i32>,
         _meta:Option<HashMap<String, Unknown>>
     }
 );
 impl Resource {
-    pub fn new(name:String,title:Option<String>,uri:String,description:Option<String>,mime_type:Option<String>,annotations:Option<ResourceAnnotation>,size:Option<i32>,_meta:Option<HashMap<String, Unknown>>) -> Self {
+    pub fn new(name:String,title:Option<String>,uri:String,description:Option<String>,mime_type:Option<String>,annotations:Option<Annotation>,size:Option<i32>,_meta:Option<HashMap<String, Unknown>>) -> Self {
         Self {
             name,
             title,

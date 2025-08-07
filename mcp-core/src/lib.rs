@@ -9,7 +9,7 @@ pub mod tool;
 use unknown::{Array, Object, String, Unknown,IntoUnknown};
 use constant::{ notification::Notification, resources::Resource, tools::Tool, RequestMethod};
 use request::{init::InitializeRequest, tool::CallToolRequest, CommonRequest};
-use result::{prompt::{ListPromptResult, Prompt, PromptArgument}, resoures::ListResourceResult, tools::{InputSchema, ListToolsResult, ToolDescription}, CommonResult, InitializeResult, ServerCapabilities, Tools};
+use result::{prompt::{GetPromptResult, ListPromptResult, Prompt, PromptArgument, PromptMessage}, resoures::ListResourceResult, tools::{InputSchema, ListToolsResult, ToolDescription}, CommonResult, ContentBlock, InitializeResult, ServerCapabilities, Tools};
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, error::Error, fmt::format, fs::File, io::{Lines, Result, Stdin, StdinLock, Write}};
 
@@ -156,7 +156,12 @@ impl McpServer {
                                     let name = params.remove("name").ok_or("err")?.unwrap_as_string().ok_or("err")?;
                                     let mut arguments = params.remove("arguments").ok_or("err")?.unwrap_as_map().ok_or("err")?;
                                     let code = arguments.remove("code").ok_or("err")?.unwrap_as_string().ok_or("err")?;
-
+                                    let res = GetPromptResult::new(req.jsonrpc, req.id.ok_or("err")?, Some("Code review prompt"), vec![
+                                        PromptMessage::new(result::Role::User, ContentBlock::new_text(format!("Please review this Python code:\n {}",code),None, None))
+                                    ]);
+                                    let res = serde_json::to_string(&res).unwrap();
+                                    println!("{res}");
+                                    log(&res);
                                 }
                             }
                         }

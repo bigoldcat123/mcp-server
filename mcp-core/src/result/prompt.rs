@@ -4,7 +4,8 @@ use serde::{Deserialize, Serialize};
 use crate::{ BaseMetadata, Result};
 use unknown::Unknown;
 
-use super::resoures::Role;
+use super::{ContentBlock, Role};
+
 
 BaseMetadata!(
     pub struct PromptArgument {
@@ -69,7 +70,16 @@ impl ListPromptResult {
 #[derive(Debug,Serialize,Deserialize)]
 pub struct PromptMessage {
     role:Role,
-    content:String
+    content:ContentBlock
+}
+
+impl PromptMessage {
+    pub fn new(role:Role,content:ContentBlock) -> Self {
+        Self {
+            role,
+            content
+        }
+    }
 }
 
 #[derive(Debug,Serialize,Deserialize)]
@@ -83,6 +93,15 @@ Result!(
         result:InnerGetPromptResult
     }
 );
+impl GetPromptResult {
+    pub fn new(jsonrpc:impl Into<String>,id:i32,description:Option<impl Into<String>>,messages:Vec<PromptMessage>) -> Self {
+        Self {
+            jsonrpc: jsonrpc.into(),
+            id,
+            result: InnerGetPromptResult { description: description.map(|s| s.into()), messages }
+        }
+    }
+}
 
 mod test {
     use crate::result::prompt::{Prompt, PromptArgument};

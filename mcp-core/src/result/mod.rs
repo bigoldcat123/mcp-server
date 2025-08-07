@@ -8,8 +8,31 @@ use serde::{Deserialize, Serialize};
 
 use crate::{ Implementation, Package, Result};
 
+#[derive(Debug,Serialize,Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum Role {
+    User,
+    Assistant,
+}
 
 
+#[derive(Debug,Serialize,Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Annotation {
+    audience:Option<Vec<Role>>,
+    priority:i32,
+    last_modified:Option<String>
+}
+
+impl Annotation {
+    pub fn new(audience:Option<Vec<Role>>,priority:i32,last_modified:Option<String>) -> Self {
+        Self {
+            audience,
+            priority,
+            last_modified
+        }
+    }
+}
 #[derive(Debug,Serialize,Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Prompts {
@@ -125,5 +148,80 @@ impl CommonResult {
     }
 }
 #[derive(Debug,Serialize,Deserialize)]
+#[serde(tag="type",rename_all_fields="camelCase", rename_all = "camelCase")]
 pub enum  ContentBlock {
+    Text {
+        text:String,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        annotations:Option<Annotation>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        _meta:Option<Unknown>
+    },
+    Image{
+        data:String,
+        mime_type:String,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        annotations:Option<Annotation>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        _meta:Option<Unknown>
+    },
+    Audio {
+        data:String,
+        mime_type:String,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        annotations:Option<Annotation>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        _meta:Option<Unknown>
+    }
+}
+impl ContentBlock {
+    pub fn new_text(text: impl Into<String>, annotations: Option<Annotation>, _meta: Option<Unknown>) -> Self {
+        Self::Text {
+            text: text.into(),
+            annotations,
+            _meta,
+        }
+    }
+    pub fn new_image(data: impl Into<String>, mime_type: impl Into<String>, annotations: Option<Annotation>, _meta: Option<Unknown>) -> Self {
+        Self::Image {
+            data: data.into(),
+            mime_type: mime_type.into(),
+            annotations,
+            _meta,
+        }
+    }
+    pub fn new_audio(data: impl Into<String>, mime_type: impl Into<String>, annotations: Option<Annotation>, _meta: Option<Unknown>) -> Self {
+        Self::Audio {
+            data: data.into(),
+            mime_type: mime_type.into(),
+            annotations,
+            _meta,
+        }
+    }
+}
+
+
+
+#[cfg(test)]
+mod test {
+    use serde::{Deserialize, Serialize};
+
+    use super::ContentBlock;
+
+
+
+    #[derive(Debug,Serialize,Deserialize)]
+    struct A {
+        content:ContentBlock
+    }
+
+
+    #[test]
+    fn test_enum_serialize() {
+        let a = A{content:ContentBlock::Image { data: "()".to_string(), mime_type: "()".to_string(), annotations: None, _meta: None }};
+        let json = serde_json::to_string(&a).unwrap();
+        println!("{}",json);
+        let x:A = serde_json::from_str(json.as_str()).unwrap();
+        println!("{:?}",x);
+    }
 }
