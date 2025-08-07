@@ -1,7 +1,8 @@
 
 use std::collections::HashMap;
 
-use crate::{util::Unknown, BaseMetadata, Result};
+use crate::{ BaseMetadata, Result};
+use unknown::Unknown;
 use serde::{Deserialize, Serialize};
 
 
@@ -24,12 +25,12 @@ pub struct ToolAnnotations {
 pub struct InputSchema {
     r#type:String,// "object"
     #[serde(skip_serializing_if = "Option::is_none")]
-    properties:Option<HashMap<String,Unknown>>,
+    properties:Option<Unknown>,
     #[serde(skip_serializing_if = "Option::is_none")]
     required:Option<Vec<String>>
 }
 impl InputSchema {
-    pub fn new(properties:Option<HashMap<String,Unknown>>,required:Option<Vec<String>>) -> Self {
+    pub fn new(properties:Option<Unknown>,required:Option<Vec<String>>) -> Self {
         Self {
             r#type:"object".to_string(),
             properties,
@@ -85,7 +86,7 @@ mod test {
 
     use std::collections::HashMap;
 
-    use crate::util::Unknown;
+    use unknown::{Object, Unknown,String,IntoUnknown};
 
     use super::{InputSchema, ListToolsResult, OutputSchema, ToolDescription};
 
@@ -96,10 +97,12 @@ mod test {
                 Some(String::from("title")),
                 Some(String::from("description")),
                 InputSchema::new(Some(
-                    HashMap::from([("location".to_string(),Unknown::Object(
-                        HashMap::from([("type".to_string(),Unknown::String("string".to_string())),
-                            ("description".to_string(),Unknown::String("City name or zip code".to_string()))])
-                    ))])
+                    Object!(
+                        "localtion" => Object! {
+                            "type" => String!("string"),
+                            "description" => String!("city name or zip code")
+                        }
+                    )
                 ), Some(vec!["location".to_string()])),
                 None,
                 None),

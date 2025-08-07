@@ -69,6 +69,7 @@ macro_rules! BaseMetadata {
         $(#[$struct_meta])*
         pub struct $name {
             name:String,
+            #[serde(skip_serializing_if = "Option::is_none")]
             title:Option<String>,
             $(
                 $(#[$field_meta])*

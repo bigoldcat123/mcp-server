@@ -1,8 +1,9 @@
 use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
+use unknown::Unknown;
 
-use crate::{util::Unknown, BaseMetadata, Result};
+use crate::{ BaseMetadata, Result};
 
 #[derive(Debug,Serialize,Deserialize)]
 #[serde(rename_all = "lowercase")]

@@ -1,8 +1,9 @@
 use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
+use unknown::Unknown;
 
-use crate::{util::Unknown, Implementation, Request};
+use crate::{ Implementation, Request};
 use crate::Package;
 
 use super::CommonRequest;

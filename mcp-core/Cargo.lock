@@ -9,12 +9,11 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c"
 
 [[package]]
-name = "mcp-core"
+name = "mcp-server"
 version = "0.1.0"
 dependencies = [
  "serde",
  "serde_json",
- "unknown",
 ]
 
 [[package]]
@@ -95,11 +94,3 @@ name = "unicode-ident"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5a5f39404a5da50712a4c1eecf25e90dd62b613502b7e925fd4e4d19b5c96512"
-
-[[package]]
-name = "unknown"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
-]

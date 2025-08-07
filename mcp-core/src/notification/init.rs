@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::util::Unknown;
+use unknown::Unknown;
 
 #[derive(Debug,Serialize,Deserialize)]
 #[serde(rename_all = "camelCase")]

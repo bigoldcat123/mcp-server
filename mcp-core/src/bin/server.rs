@@ -3,7 +3,7 @@ use std::{
     io::stdin,
 };
 
-use mcp_server::McpServer;
+use mcp_core::McpServer;
 
 fn main() {
     let f = File::create("/Users/dadigua/Desktop/mcp-server/log.log").unwrap();

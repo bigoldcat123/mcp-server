@@ -1,15 +1,15 @@
 
 pub mod init;
 pub mod tool;
-use crate::{util::Unknown, Package};
-
+use crate::{ Package};
+use unknown::Unknown;
 use serde::{Deserialize, Serialize};
 
 
 Package!(
     pub struct CommonRequest {
         pub id:Option<i32>,
-        params:Option<Unknown>
+        pub params:Option<Unknown>
     }
 );
 

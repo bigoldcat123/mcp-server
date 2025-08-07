@@ -2,10 +2,11 @@ pub mod tools;
 pub mod prompt;
 pub mod resoures;
 use std::collections::HashMap;
+use unknown::Unknown;
 
 use serde::{Deserialize, Serialize};
 
-use crate::{util::Unknown, Implementation, Package, Result};
+use crate::{ Implementation, Package, Result};
 
 
 
@@ -75,16 +76,17 @@ Result!(
     }
 );
 impl InitializeResult {
-    pub fn new(json:String,id:i32,protocol_version: String, capabilities: ServerCapabilities, server_info: Implementation, instructions: Option<String>) -> Self {
+    pub fn new(jsonrpc:impl Into<String>,id:i32,protocol_version: impl Into<String>, capabilities: ServerCapabilities,
+        server_info: Implementation, instructions: Option<impl Into<String>>) -> Self {
 
         Self{
-            jsonrpc:json,
+            jsonrpc:jsonrpc.into(),
             id,
             result: InnerInitializeResult {
-            protocol_version,
+            protocol_version:protocol_version.into(),
             capabilities,
             server_info,
-            instructions,
+            instructions:instructions.map(Into::into),
         }}
     }
 }
@@ -98,7 +100,30 @@ pub struct ResultError {
 
 Result!(
     pub struct CommonResult {
-        pub result:Option<HashMap<String, Unknown>>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub result:Option<Unknown>,
+        #[serde(skip_serializing_if = "Option::is_none")]
         pub error:Option<ResultError>
     }
 );
+impl CommonResult {
+    pub fn ok(jsonrpc:String,id:i32,result:Option<Unknown>) -> Self {
+        Self {
+            jsonrpc,
+            id,
+            result,
+            error:None,
+        }
+    }
+    pub fn error(jsonrpc:String,id:i32,error:ResultError) -> Self {
+        Self {
+            jsonrpc,
+            id,
+            result:None,
+            error:Some(error),
+        }
+    }
+}
+#[derive(Debug,Serialize,Deserialize)]
+pub enum  ContentBlock {
+}
