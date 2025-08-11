@@ -2,6 +2,7 @@ use std::{fs::File, io::Read};
 
 use mcp_core::{request::{init::InitializeRequest, CommonRequest}, result::{InitializeResult, ServerCapabilities}, Implementation};
 use serde::{Deserialize, Serialize};
+use serde_json::json;
 use unknown::Unknown;
 
 #[test]
@@ -38,7 +39,7 @@ fn test_de() {
 
 #[test]
 fn seri_result() {
-    let req = InitializeResult::new("2.0".to_string(), 1, "2025-06-18".to_string(), ServerCapabilities::new(None, None, None, None, None), Implementation::new("ExampleServer".to_string(), Some("Example Server Display Name".to_string()), "222.222".to_string()), Some("this is a instruction!".to_string()));
+    let req = InitializeResult::new("2.0".to_string(), 1, "2025-06-18".to_string(), ServerCapabilities::new(None, None, None, None, None,None), Implementation::new("ExampleServer".to_string(), Some("Example Server Display Name".to_string()), "222.222".to_string()), Some("this is a instruction!".to_string()));
     let res = serde_json::to_string_pretty(&req).unwrap();
     println!("{}", res);
     let e = serde_json::from_str::<Unknown>(&res).unwrap();
@@ -169,4 +170,32 @@ fn from_common_to_specific() {
     let x:CommonRequest = c.try_into().unwrap();
     let x:InitializeRequest = x.try_into().unwrap();
     println!("{:#?}",x);
+}
+
+#[test]
+fn test_fs() {
+
+    let mut f = File::open("/Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs").unwrap();
+    let mut s = String::new();
+    f.read_to_string(&mut s).unwrap();
+    println!("{}", s);
+}
+
+#[test]
+fn test_json2() {
+    let s = String::new();
+    let a = json!({
+        "name":"sa",
+        s.as_str():30,
+        "location":{
+            "city":"New York",
+            "population":8000000
+        },
+        "hobbies":["reading","coding",s]
+    });
+
+    let x = a.as_object().unwrap();
+    println!("{:#?}",x);
+    let e =serde_json::to_string_pretty(&a).unwrap();
+    println!("{e}");
 }

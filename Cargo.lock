@@ -18,6 +18,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "mcp-server"
+version = "0.1.0"
+dependencies = [
+ "mcp-core",
+ "serde",
+ "serde_json",
+ "unknown",
+]
+
+[[package]]
+name = "mcp-server-macro"
+version = "0.1.0"
+
+[[package]]
 name = "memchr"
 version = "2.7.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"

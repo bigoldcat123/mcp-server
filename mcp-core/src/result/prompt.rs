@@ -27,7 +27,7 @@ impl PromptArgument {
 }
 
 BaseMetadata!(
-    pub struct Prompt {
+    pub struct PromptDescription {
         #[serde(skip_serializing_if = "Option::is_none")]
         description:Option<String>,
         arguments:Vec<PromptArgument>,
@@ -35,7 +35,7 @@ BaseMetadata!(
         _meta:Option<Unknown>
     }
 );
-impl Prompt {
+impl PromptDescription {
     pub fn new(name:impl Into<String>,title:Option<impl Into<String>>
         ,description:Option<impl Into<String>>, arguments:Vec<PromptArgument>, _meta:Option<Unknown>) -> Self {
         Self {
@@ -49,7 +49,7 @@ impl Prompt {
 }
 #[derive(Debug,Serialize,Deserialize)]
 struct InnerListPromptResult {
-    prompts:Vec<Prompt>
+    prompts:Vec<PromptDescription>
 }
 
 Result! (
@@ -59,7 +59,7 @@ Result! (
 );
 
 impl ListPromptResult {
-    pub fn new(jsonrpc:impl Into<String>,id:i32,prompts: Vec<Prompt>) -> Self {
+    pub fn new(jsonrpc:impl Into<String>,id:i32,prompts: Vec<PromptDescription>) -> Self {
         Self {
             jsonrpc: jsonrpc.into(),
             id,
@@ -104,14 +104,14 @@ impl GetPromptResult {
 }
 
 mod test {
-    use crate::result::prompt::{Prompt, PromptArgument};
+    use crate::result::prompt::{PromptDescription, PromptArgument};
 
     use super::ListPromptResult;
 
     #[test]
     fn serialize() {
         let res = ListPromptResult::new("jsonrpc".to_string(), 1, vec![
-            Prompt::new("abc",Some( "title"),Some( "descrption"), vec![
+            PromptDescription::new("abc",Some( "title"),Some( "descrption"), vec![
                 PromptArgument::new("arg1", Some("arg1_title"), Some("arg1_description"), Some(true)),
                 PromptArgument::new("arg2", Some("arg2_title"), Some("arg2_description"), Some(true))
             ], None)

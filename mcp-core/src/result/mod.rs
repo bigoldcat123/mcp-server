@@ -1,6 +1,7 @@
 pub mod tools;
 pub mod prompt;
 pub mod resoures;
+pub mod macros;
 use std::collections::HashMap;
 use unknown::Unknown;
 
@@ -71,16 +72,18 @@ pub struct ServerCapabilities {
     #[serde(skip_serializing_if = "Option::is_none")]
     prompts:Option<Prompts>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    tools: Option<Tools>
+    tools: Option<Tools>,
+    resources:Option<Resources>
 }
 impl ServerCapabilities {
-    pub fn new(experimental:Option<HashMap<String, Unknown>>, logging: Option<Unknown>, completions: Option<Unknown>, prompts:Option<Prompts>, tools: Option<Tools>) -> Self {
+    pub fn new(experimental:Option<HashMap<String, Unknown>>, logging: Option<Unknown>, completions: Option<Unknown>, prompts:Option<Prompts>, tools: Option<Tools>,resources:Option<Resources>) -> Self {
         ServerCapabilities {
             experimental,
             logging,
             completions,
             prompts,
-            tools
+            tools,
+            resources
         }
     }
 }

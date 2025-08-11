@@ -52,11 +52,11 @@ BaseMetadata!(
     }
 );
 impl ToolDescription {
-    pub fn new(name:String,title:Option<String>,description:Option<String>,input_schema:InputSchema,output_schema:Option<OutputSchema>,annotations:Option<ToolAnnotations>) -> Self {
+    pub fn new(name:impl Into<String>,title:Option<impl Into<String>>,description:Option<impl Into<String>>,input_schema:InputSchema,output_schema:Option<OutputSchema>,annotations:Option<ToolAnnotations>) -> Self {
         Self {
-            name,
-            title,
-            description,
+            name: name.into(),
+            title: title.map(|t| t.into()),
+            description: description.map(|d| d.into()),
             input_schema,
             output_schema,
             annotations

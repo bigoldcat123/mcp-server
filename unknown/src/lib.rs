@@ -228,6 +228,5 @@ mod test {
             "house" => Object!(x => "eee", "y" => "yyy", "z" => "zzz", "w" => "www")
         };
         println!("{:?}",a);
-
     }
 }
