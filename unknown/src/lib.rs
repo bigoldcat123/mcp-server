@@ -1,8 +1,21 @@
 pub mod macros;
 
-use std::{collections::HashMap, fmt};
+use std::{collections::HashMap, fmt::{self, Display}};
 
 use serde::{de::{self, Visitor}, Deserialize, Deserializer, Serialize, Serializer};
+
+#[derive(Debug)]
+pub struct ConvertError {
+    pub message: &'static str,
+}
+impl Display for ConvertError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f,"{}",self.message)
+    }
+}
+impl std::error::Error for ConvertError {
+
+}
 
 #[derive(Debug)]
 pub enum Unknown {
@@ -13,6 +26,46 @@ pub enum Unknown {
     Object(HashMap<String, Unknown>),
     Array(Vec<Unknown>)
 }
+impl TryFrom<Unknown> for i32 {
+    type Error = ConvertError;
+    fn try_from(value: Unknown) -> Result<Self, Self::Error> {
+        match value {
+            Unknown::Number(n) => Ok(n),
+            _ => Err(ConvertError { message: "can not convert to i32" }),
+        }
+    }
+}
+impl <'a> TryFrom<&'a Unknown> for &'a str {
+    type Error = ConvertError;
+    fn try_from(value: &'a Unknown) -> Result<Self, Self::Error> {
+        match value {
+            Unknown::String(s) => Ok(s.as_str()),
+            _ => Err(ConvertError { message: "can not convert to &str" }),
+        }
+    }
+}
+
+impl TryFrom< Unknown> for  String {
+    type Error = ConvertError;
+    fn try_from(value:  Unknown) -> Result<Self, Self::Error> {
+        match value {
+            Unknown::String(s) => Ok(s),
+            _ => Err(ConvertError { message: "can not convert to String" }),
+        }
+    }
+}
+
+
+impl TryFrom<Unknown> for Vec<Unknown> {
+    type Error = ConvertError;
+    fn try_from(value: Unknown) -> Result<Self, Self::Error> {
+        match value  {
+            Unknown::Array(arr) => Ok(arr),
+            _ => Err(ConvertError{message:"can not convert to vec"})
+        }
+    }
+}
+
 pub trait IntoUnknown {
      fn into_unknown(self) -> Unknown;
 }
@@ -41,9 +94,29 @@ impl IntoUnknown for bool {
         Unknown::Bool(self)
     }
 }
+impl TryFrom<Unknown> for bool {
+    type Error = ConvertError;
+    fn try_from(value: Unknown) -> Result<Self, Self::Error> {
+        match value {
+            Unknown::Bool(b) => Ok(b)  ,
+            _ => Err(ConvertError { message: "can not convert!" })
+        }
+    }
+}
 impl IntoUnknown for HashMap<String, Unknown> {
     fn into_unknown(self) -> Unknown {
         Unknown::Object(self)
+    }
+}
+
+
+impl TryFrom<Unknown> for HashMap<String,Unknown> {
+    type Error = ConvertError;
+    fn try_from(value: Unknown) -> Result<Self, Self::Error> {
+        match value {
+            Unknown::Object(obj) => Ok(obj),
+            _ => Err(ConvertError{message:"can not convert!"})
+        }
     }
 }
 impl IntoUnknown for Vec<Unknown> {
@@ -228,5 +301,19 @@ mod test {
             "house" => Object!(x => "eee", "y" => "yyy", "z" => "zzz", "w" => "www")
         };
         println!("{:?}",a);
+    }
+
+    #[test]
+    fn from_into() {
+        let a = String!("ease");
+        fn aa(name:String,age:Vec<i32>) {
+            println!("{} {:?}",name,age);
+        }
+        let ages = Array!(1,2,3,4);
+        let x = ages.try_into().and_then(|e:Vec<Unknown>| {
+        let e = e.into_iter().map(|x| x.try_into().unwrap()).collect();
+        Ok(e)
+    }).unwrap();
+        aa(a.try_into().unwrap(),x);
     }
 }

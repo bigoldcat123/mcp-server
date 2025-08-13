@@ -1,6 +1,6 @@
 
 [workspace]
-members = ["mcp-core", "mcp-server", "mcp-server-macro", "unknown"]
+members = ["mcp-core", "mcp-server", "mcp-server-app", "mcp-server-macro", "unknown"]
 resolver = "3"
 
 [workspace.dependencies]

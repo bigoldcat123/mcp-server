@@ -36,3 +36,372 @@ List Resources
 {"method":"prompts/list","params":{},"jsonrpc":"2.0","id":59}
 List Prompts
 {"jsonrpc":"2.0","id":59,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":60}
+List Resources
+{"jsonrpc":"2.0","id":60,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":61}
+List Prompts
+{"jsonrpc":"2.0","id":61,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":62}
+List Resources
+{"jsonrpc":"2.0","id":62,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":63}
+List Prompts
+{"jsonrpc":"2.0","id":63,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":64}
+List Resources
+{"jsonrpc":"2.0","id":64,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":65}
+List Prompts
+{"jsonrpc":"2.0","id":65,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":66}
+List Resources
+{"jsonrpc":"2.0","id":66,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":67}
+List Prompts
+{"jsonrpc":"2.0","id":67,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":68}
+List Resources
+{"jsonrpc":"2.0","id":68,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":69}
+List Prompts
+{"jsonrpc":"2.0","id":69,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":70}
+List Resources
+{"jsonrpc":"2.0","id":70,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":71}
+List Prompts
+{"jsonrpc":"2.0","id":71,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":72}
+List Resources
+{"jsonrpc":"2.0","id":72,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":73}
+List Prompts
+{"jsonrpc":"2.0","id":73,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":74}
+List Resources
+{"jsonrpc":"2.0","id":74,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":75}
+List Prompts
+{"jsonrpc":"2.0","id":75,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":76}
+List Resources
+{"jsonrpc":"2.0","id":76,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":77}
+List Prompts
+{"jsonrpc":"2.0","id":77,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":78}
+List Resources
+{"jsonrpc":"2.0","id":78,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":79}
+List Prompts
+{"jsonrpc":"2.0","id":79,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":80}
+List Resources
+{"jsonrpc":"2.0","id":80,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":81}
+List Prompts
+{"jsonrpc":"2.0","id":81,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":82}
+List Resources
+{"jsonrpc":"2.0","id":82,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":83}
+List Prompts
+{"jsonrpc":"2.0","id":83,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":84}
+List Resources
+{"jsonrpc":"2.0","id":84,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":85}
+List Prompts
+{"jsonrpc":"2.0","id":85,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":86}
+List Resources
+{"jsonrpc":"2.0","id":86,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":87}
+List Prompts
+{"jsonrpc":"2.0","id":87,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":88}
+List Resources
+{"jsonrpc":"2.0","id":88,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":89}
+List Prompts
+{"jsonrpc":"2.0","id":89,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":90}
+List Resources
+{"jsonrpc":"2.0","id":90,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":91}
+List Prompts
+{"jsonrpc":"2.0","id":91,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":92}
+List Resources
+{"jsonrpc":"2.0","id":92,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":93}
+List Prompts
+{"jsonrpc":"2.0","id":93,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":94}
+List Resources
+{"jsonrpc":"2.0","id":94,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":95}
+List Prompts
+{"jsonrpc":"2.0","id":95,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":96}
+List Resources
+{"jsonrpc":"2.0","id":96,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":97}
+List Prompts
+{"jsonrpc":"2.0","id":97,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":98}
+List Resources
+{"jsonrpc":"2.0","id":98,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":99}
+List Prompts
+{"jsonrpc":"2.0","id":99,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":100}
+List Resources
+{"jsonrpc":"2.0","id":100,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":101}
+List Prompts
+{"jsonrpc":"2.0","id":101,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":102}
+List Resources
+{"jsonrpc":"2.0","id":102,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":103}
+List Prompts
+{"jsonrpc":"2.0","id":103,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":104}
+List Resources
+{"jsonrpc":"2.0","id":104,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":105}
+List Prompts
+{"jsonrpc":"2.0","id":105,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":106}
+List Resources
+{"jsonrpc":"2.0","id":106,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":107}
+List Prompts
+{"jsonrpc":"2.0","id":107,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":108}
+List Resources
+{"jsonrpc":"2.0","id":108,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":109}
+List Prompts
+{"jsonrpc":"2.0","id":109,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":110}
+List Resources
+{"jsonrpc":"2.0","id":110,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":111}
+List Prompts
+{"jsonrpc":"2.0","id":111,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":112}
+List Resources
+{"jsonrpc":"2.0","id":112,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":113}
+List Prompts
+{"jsonrpc":"2.0","id":113,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":114}
+List Resources
+{"jsonrpc":"2.0","id":114,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":115}
+List Prompts
+{"jsonrpc":"2.0","id":115,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":116}
+List Resources
+{"jsonrpc":"2.0","id":116,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":117}
+List Prompts
+{"jsonrpc":"2.0","id":117,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":118}
+List Resources
+{"jsonrpc":"2.0","id":118,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":119}
+List Prompts
+{"jsonrpc":"2.0","id":119,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":120}
+List Resources
+{"jsonrpc":"2.0","id":120,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":121}
+List Prompts
+{"jsonrpc":"2.0","id":121,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+start!
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
+Initialized
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+List Tool
+{"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"minus","title":"minus(a,b) => a-b","description":"call it to do minus between two numbers","inputSchema":{"type":"object","properties":{"num1":{"type":"number","description":"first number to subtract"},"num2":{"type":"number","description":"second number to subtract"}},"required":["num1","num2"]}}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":122}
+List Resources
+{"jsonrpc":"2.0","id":122,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":123}
+List Prompts
+{"jsonrpc":"2.0","id":123,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":124}
+List Resources
+{"jsonrpc":"2.0","id":124,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":125}
+List Prompts
+{"jsonrpc":"2.0","id":125,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":126}
+List Resources
+{"jsonrpc":"2.0","id":126,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":127}
+List Prompts
+{"jsonrpc":"2.0","id":127,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":128}
+List Resources
+{"jsonrpc":"2.0","id":128,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":129}
+List Prompts
+{"jsonrpc":"2.0","id":129,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":130}
+List Resources
+{"jsonrpc":"2.0","id":130,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":131}
+List Prompts
+{"jsonrpc":"2.0","id":131,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":132}
+List Resources
+{"jsonrpc":"2.0","id":132,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":133}
+List Prompts
+{"jsonrpc":"2.0","id":133,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":134}
+List Resources
+{"jsonrpc":"2.0","id":134,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":135}
+List Prompts
+{"jsonrpc":"2.0","id":135,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":136}
+List Resources
+{"jsonrpc":"2.0","id":136,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":137}
+List Prompts
+{"jsonrpc":"2.0","id":137,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":138}
+List Resources
+{"jsonrpc":"2.0","id":138,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":139}
+List Prompts
+{"jsonrpc":"2.0","id":139,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":140}
+List Resources
+{"jsonrpc":"2.0","id":140,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":141}
+List Prompts
+{"jsonrpc":"2.0","id":141,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":142}
+List Resources
+{"jsonrpc":"2.0","id":142,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":143}
+List Prompts
+{"jsonrpc":"2.0","id":143,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":144}
+List Resources
+{"jsonrpc":"2.0","id":144,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":145}
+List Prompts
+{"jsonrpc":"2.0","id":145,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":146}
+List Resources
+{"jsonrpc":"2.0","id":146,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":147}
+List Prompts
+{"jsonrpc":"2.0","id":147,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":148}
+List Resources
+{"jsonrpc":"2.0","id":148,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":149}
+List Prompts
+{"jsonrpc":"2.0","id":149,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":150}
+List Resources
+{"jsonrpc":"2.0","id":150,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":151}
+List Prompts
+{"jsonrpc":"2.0","id":151,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":152}
+List Resources
+{"jsonrpc":"2.0","id":152,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":153}
+List Prompts
+{"jsonrpc":"2.0","id":153,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":154}
+List Resources
+{"jsonrpc":"2.0","id":154,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":155}
+List Prompts
+{"jsonrpc":"2.0","id":155,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":156}
+List Resources
+{"jsonrpc":"2.0","id":156,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":157}
+List Prompts
+{"jsonrpc":"2.0","id":157,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":158}
+List Resources
+{"jsonrpc":"2.0","id":158,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":159}
+List Prompts
+{"jsonrpc":"2.0","id":159,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":160}
+List Resources
+{"jsonrpc":"2.0","id":160,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":161}
+List Prompts
+{"jsonrpc":"2.0","id":161,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":162}
+List Resources
+{"jsonrpc":"2.0","id":162,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":163}
+List Prompts
+{"jsonrpc":"2.0","id":163,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+{"method":"resources/list","params":{},"jsonrpc":"2.0","id":164}
+List Resources
+{"jsonrpc":"2.0","id":164,"result":{"resources":[{"name":"lib.rs","title":"Rust Software Application Lib File","uri":"file:///Users/dadigua/Desktop/mcp-server/mcp-core/src/lib.rs","description":"Rust Software Application Main File"}]}}
+{"method":"prompts/list","params":{},"jsonrpc":"2.0","id":165}
+List Prompts
+{"jsonrpc":"2.0","id":165,"result":{"prompts":[{"name":"code_review","title":"Request Code Review","description":"Asks the LLM to analyze code quality and suggest improvements","arguments":[{"name":"code","description":"The code to review","required":true}]}]}}
+start!
+{"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"claude-ai","version":"0.1.0"}},"jsonrpc":"2.0","id":0}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-06-18","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+start!
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
+Initialized
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+List Tool
+{"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"minus","title":"minus(a,b) => a-b","description":"call it to do minus between two numbers","inputSchema":{"type":"object","properties":{"num2":{"type":"number","description":"second number to subtract"},"num1":{"description":"first number to subtract","type":"number"}},"required":["num1","num2"]}}]}}
+start!
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
+Initialized
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+List Tool
+{"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"minus","title":"minus(a,b) => a-b","description":"call it to do minus between two numbers","inputSchema":{"type":"object","properties":{"num1":{"description":"first number to subtract","type":"number"},"num2":{"description":"second number to subtract","type":"number"}},"required":["num1","num2"]}}]}}
+start!
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
+Initialized
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+List Tool
+{"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"minus","title":"minus(a,b) => a-b","description":"call it to do minus between two numbers","inputSchema":{"type":"object","properties":{"num1":{"type":"number","description":"first number to subtract"},"num2":{"description":"second number to subtract","type":"number"}},"required":["num1","num2"]}}]}}
+start!
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
+Initialized
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+List Tool
+{"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"minus","title":"minus(a,b) => a-b","description":"call it to do minus between two numbers","inputSchema":{"type":"object","properties":{"num1":{"type":"number","description":"first number to subtract"},"num2":{"type":"number","description":"second number to subtract"}},"required":["num1","num2"]}}]}}
+start!
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"Zed","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2025-03-26","capabilities":{"tools":{"listChanged":false},"resources":null},"serverInfo":{"name":"ExampleServer","title":"Example Server Display Name","version":"2.0"},"instructions":"this is a instruction!"}}
+{"jsonrpc":"2.0","method":"notifications/initialized","params":null}
+Initialized
+{"jsonrpc":"2.0","id":1,"method":"tools/list"}
+List Tool
+{"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"minus","title":"minus(a,b) => a-b","description":"call it to do minus between two numbers","inputSchema":{"type":"object","properties":{"num2":{"description":"second number to subtract","type":"number"},"num1":{"type":"number","description":"first number to subtract"}},"required":["num1","num2"]}}]}}
